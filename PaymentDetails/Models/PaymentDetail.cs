@@ -19,7 +19,7 @@ namespace PaymentDetails.Models
 
         [Required]
         [Column(TypeName ="varchar(5)")]
-        public string ExpirationData { get; set; }
+        public string ExpirationDate { get; set; }
 
         [Required]
         [Column(TypeName = "varchar(3)")]

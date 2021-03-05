@@ -1,15 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import { PaymentDetailService } from '../shared/payment-detail.service';
+import { PaymentDetail } from '../shared/payment-detail.model';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-payment-details-form',
   templateUrl: './payment-details-form.component.html',
-  styleUrls: ['./payment-details-form.component.scss']
+  styleUrls: ['./payment-details-form.component.scss'],
 })
 export class PaymentDetailsFormComponent implements OnInit {
+  constructor(public service: PaymentDetailService) {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  resetForm(form: NgForm) {
+    form.form.reset();
+    this.service.formData = new PaymentDetail();
   }
-
 }

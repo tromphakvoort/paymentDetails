@@ -12,4 +12,8 @@ export class PaymentDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.service.refreshList();
   }
+
+  populateForm(selectedRecord: any) {
+    this.service.formData = Object.assign({}, selectedRecord);
+  }
 }

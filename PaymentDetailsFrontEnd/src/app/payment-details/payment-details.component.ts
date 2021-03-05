@@ -16,4 +16,15 @@ export class PaymentDetailsComponent implements OnInit {
   populateForm(selectedRecord: any) {
     this.service.formData = Object.assign({}, selectedRecord);
   }
+
+  onDelete(paymentDetailId: number) {
+    if (confirm('Are you sure to delete this record?')) {
+      this.service.deletePaymentDetail(paymentDetailId).subscribe(
+        (res) => {
+          this.service.refreshList();
+        },
+        (err) => console.log(err)
+      );
+    }
+  }
 }
